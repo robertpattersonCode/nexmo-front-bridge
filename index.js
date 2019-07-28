@@ -1,11 +1,9 @@
-////// https://front777.herokuapp.com/
 
 const Nexmo = require('nexmo'); //nexmo node lib
-const express = require('express'); //expr
+const express = require('express'); 
 const bodyParser = require('body-parser'); //body parser to parse the incoming http request
 const app = express();
 var http = require('http');
-const handleParams = require('./handle');
 const port = process.env.PORT || 5000;
 
 var request = require('request');
@@ -14,13 +12,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const nexmo = new Nexmo({
-	apiKey: '84ed6852',
-	apiSecret: 'JibCuseSVvI0Hp1F'
+	apiKey: 'YOUR-KEY',
+	apiSecret: 'YOUR-SECRET'
 });
 
 var frm = '';
 app.post('/', (req, res) => {
-	res.return('TIT CLiT NINJA ACTION!');
+	res.return('NINJA ACTION!');
 	res.status(200).end();
 });
 app.get('/ping', (req, res) => {
@@ -35,99 +33,50 @@ app.post('/ping', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-	handleParams(req.query, res);
+	res.return('NINJA ACTION!');
 	res.status(200).end();
 });
+//// COPY AND PASTE AS MANY ROUTES FOR #S AS YOU NEED!!
 
-//////////////////////////////////////////////  12089106000
-app.post('/12089106000', (req, res) => {
-	frm = '12089106000';
-	hx(req.body, res);
-	res.status(200).end();
-});
-//////////////////////////////////////////////  12134097000
-app.post('/12134097000', (req, res) => {
-	frm = '12134097000';
+
+//////////////////////////////////////////////  12135551212   <-- REPLACE WITH YOUR NEXMO SMS #
+app.post('/12135551212', (req, res) => {
+	frm = '12135551212';
 	hx(req.body, res);
 	res.status(200).end();
 });
 
-//////////////////////////////////////////////  12134099990
-app.post('/12134099990', (req, res) => {
-	frm = '12134099990';
+//////////////////////////////////////////////  12135551212   <-- REPLACE WITH YOUR NEXMO SMS #
+app.post('/12135551212', (req, res) => {
+	frm = '12135551212';
 	hx(req.body, res);
 	res.status(200).end();
 });
 
-//////////////////////////////////////////////  12134099991
-app.post('/12134099991', (req, res) => {
-	frm = '12134099991';
+//////////////////////////////////////////////  12135551212   <-- REPLACE WITH YOUR NEXMO SMS #
+app.post('/12135551212', (req, res) => {
+	frm = '12135551212';
 	hx(req.body, res);
 	res.status(200).end();
 });
 
-//////////////////////////////////////////////  12134099992
-app.post('/12134099992', (req, res) => {
-	frm = '12134099992';
+
+//////////////////////////////////////////////  12135551212   <-- REPLACE WITH YOUR NEXMO SMS #
+app.post('/12135551212', (req, res) => {
+	frm = '12135551212';
 	hx(req.body, res);
 	res.status(200).end();
 });
 
-//////////////////////////////////////////////  12134099993
-app.post('/12134099993', (req, res) => {
-	frm = '12134099993';
+
+//////////////////////////////////////////////  12135551212   <-- REPLACE WITH YOUR NEXMO SMS #
+app.post('/12135551212', (req, res) => {
+	frm = '12135551212';
 	hx(req.body, res);
 	res.status(200).end();
 });
 
-//////////////////////////////////////////////  12134099994
-app.post('/12134099994', (req, res) => {
-	frm = '12134099994';
-	hx(req.body, res);
-	res.status(200).end();
-});
 
-//////////////////////////////////////////////  12134099995
-app.post('/12134099995', (req, res) => {
-	frm = '12134099995';
-	hx(req.body, res);
-	res.status(200).end();
-});
-
-//////////////////////////////////////////////  12134099996
-app.post('/12134099996', (req, res) => {
-	frm = '12134099996';
-	hx(req.body, res);
-	res.status(200).end();
-});
-
-//////////////////////////////////////////////  12134099997
-app.post('/12134099997', (req, res) => {
-	frm = '12134099997';
-	hx(req.body, res);
-	res.status(200).end();
-});
-
-//////////////////////////////////////////////  12134099998
-app.post('/12134099998', (req, res) => {
-	frm = '12134099998';
-	hx(req.body, res);
-	res.status(200).end();
-});
-
-// //////////////////////////////////////////////  12089106000
-// app.post('/12089106000', (req, res) => {
-// 	frm = '12089106000';
-// 	hx(req.body, res);
-// 	res.status(200).end();
-// });
-
-// //////////////////////////////////////////////  12089106000
-// app.post('/12089106000', (req, res) => {
-// 	frm = '12089106000';
-// 	hx(req.body, res);
-// 	res.status(200).end();
-// });
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -145,6 +94,7 @@ function hx(params, res) {
 	function remove_first_character(element) {
 		return element.slice(1);
 	}
+	//// SOMETIMES FRONT LIKE TO PUT A + EVEN WHEN YOU TELL IT NOT TOO.. THIS TAKES CARE OF THAT.. 
 	var res = fm.charAt(0);
 	if (res == '+') {
 		console.log('{}{}{}{}{}  found a + {}{}{}}{}{}{}');
@@ -152,7 +102,8 @@ function hx(params, res) {
 		fm = remove_first_character(fm);
 	}
 
-	// nexmo.message.sendSms(frm, fm, txts, opts)
+	/////////////////////////// CONVERT INCOMING FRONT MESSAGE, SLICE AND DICE IT AND REPACKAGE IT FOR NEXMO API
+
 	const from = frm;
 	const to = fm;
 	const text = txts;
