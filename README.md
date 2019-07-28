@@ -27,7 +27,9 @@ git push heroku master
 
 
 then in front, set up a mailbox 'custom'
-put the heroku url you just created in the outgoing webhook field. 
+put the heroku url and add '/2135551212'  <-- [replace with your sms #] to the end of the app  you just created in the Front outgoing webhook field. 
+example:  https://myapp.heroku.com/12135551212
+
 
 send sms's !
 
